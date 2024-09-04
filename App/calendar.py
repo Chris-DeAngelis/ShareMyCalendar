@@ -29,7 +29,7 @@ with st.expander("Instructions", expanded=False):
         4. ...
         """)
 st.divider()
-Create a double-ended datetime slider
+# Create a double-ended datetime slider
 start_date = datetime.now()
 end_date = start_date + timedelta(days=365)
 st.write('Filter Calendar Dates')
