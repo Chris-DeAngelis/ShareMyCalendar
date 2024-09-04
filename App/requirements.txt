@@ -1,3 +1,11 @@
 # Dataframe and Array functions
 pandas == 1.5.3
 numpy
+
+# Datetime Packages
+datetime
+pytz
+
+# Calendar Parser
+icalendar
+
