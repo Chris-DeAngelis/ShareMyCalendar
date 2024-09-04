@@ -147,14 +147,14 @@ def create_calendar(year, month):
 # Streamlit app
 st.title("Calendar View")
 
-# # Get current year and month
-# if calendar_file != None:
-#   create_calendar(start_date.year, start_date.month)
-# else:
-#   st.write('Please Upload a Calendar files (.ics) to get started')
+# Get current year and month
+if calendar_file != None:
+  create_calendar(start_date.year, start_date.month)
+else:
+  st.write('Please Upload a Calendar files (.ics) to get started')
 
-# # Display legend
-# st.write('Calendar Legend:')
-# st.markdown("<div style='background-color: #90EE90; padding: 5px; border-radius: 5px;'>Available</div>", unsafe_allow_html=True)
-# st.markdown("<div style='background-color: #FFA07A; padding: 5px; border-radius: 5px;'>Busy</div>", unsafe_allow_html=True)
-# st.markdown("<div style='background-color: #F0F0F0; padding: 5px; border-radius: 5px;'>No Data</div>", unsafe_allow_html=True)
+# Display legend
+st.write('Calendar Legend:')
+st.markdown("<div style='background-color: #90EE90; padding: 5px; border-radius: 5px;'>Available</div>", unsafe_allow_html=True)
+st.markdown("<div style='background-color: #FFA07A; padding: 5px; border-radius: 5px;'>Busy</div>", unsafe_allow_html=True)
+st.markdown("<div style='background-color: #F0F0F0; padding: 5px; border-radius: 5px;'>No Data</div>", unsafe_allow_html=True)
