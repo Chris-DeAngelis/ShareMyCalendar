@@ -46,9 +46,8 @@ calendar_file = None
 calendar_file = st.file_uploader('Upload an .ics File from Outlook', accept_multiple_files=False)
 
 ############## Build Functions ##############
-def parse_calendar(file_path):
-    with open(file_path, 'rb') as file:
-        cal = Calendar.from_ical(file.read())
+def parse_calendar(file):
+    cal = Calendar.from_ical(file.read())
     return cal
 
 def get_events(calendar):
