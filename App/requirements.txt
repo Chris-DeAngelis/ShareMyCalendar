@@ -1,0 +1,3 @@
+# Dataframe and Array functions
+pandas == 1.5.3
+numpy
