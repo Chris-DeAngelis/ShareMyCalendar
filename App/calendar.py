@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from icalendar import Calendar #, Event, vCalAddress, vText
-import calendar
+#import calendar
 from datetime import datetime, timedelta
 import pytz
 
@@ -31,25 +31,24 @@ with st.expander("Instructions", expanded=False):
         4. ...
         """)
 st.divider()
-# Create a double-ended datetime slider
-start_date = datetime.now()
-end_date = start_date + timedelta(days=365)
-st.write('Filter Calendar Dates')
-selected_date_range = st.slider(
-    'Select a Date Range',
-    min_value=start_date,
-    max_value=end_date,
-    value=(start_date, start_date + timedelta(days=28)),
-    step=timedelta(days=1),
-)
 
 ############## Upload a Calendar File ##############
 calendar_file = None
 calendar_file = st.file_uploader('Upload an .ics File from Outlook', accept_multiple_files=False)
 
 ############## Build Functions ##############
+def generate_half_hour_times(mins=30):
+    times = []
+    current_time = datetime.strptime("00:00", "%H:%M")
+    end_time = datetime.strptime("23:59", "%H:%M")
+
+    while current_time <= end_time:
+        times.append(current_time.strftime("%I:%M %p"))
+        current_time += timedelta(minutes=mins)
+
+    return times
+
 def parse_calendar(file):
-    
     cal = Calendar.from_ical(file.read())
     return cal
 
@@ -144,6 +143,24 @@ def create_calendar(year, month):
                         cols[i].markdown(f"<div style='background-color: #F0F0F0; padding: 10px; border-radius: 5px;'>{day}</div>", unsafe_allow_html=True)
                 else:
                     cols[i].write("")
+
+############## Create Filters ##############
+# Create a double-ended datetime slider
+start_date = datetime.now()
+end_date = start_date + timedelta(days=365)
+st.write('Filter Calendar Dates')
+selected_date_range = st.slider(
+    'Select a Date Range',
+    min_value=start_date,
+    max_value=end_date,
+    value=(start_date, start_date + timedelta(days=28)),
+    step=timedelta(days=1),
+    key=1
+),
+interval = st.selectbox('Select Calendar Interval', [15,30,60], index=1, key=2)
+beg_hours = st.selectbox('Select Beginning Work Hour', generate_half_hour_times(mins=interval), index=10, key=3)
+end_hours = st.selectbox('Select Ending Work Hour', generate_half_hour_times(mins=interval), index=20, key=4)
+time_zone = st.selectbox('Select the Time Zone of your Desired Output', ['CST','EST'], index=0, key=5)
 
 ############## Show Calendar ##############
 # Streamlit app
