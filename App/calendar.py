@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from icalendar import Calendar #, Event, vCalAddress, vText
+import calendar
 from datetime import datetime, timedelta
 import pytz
 
@@ -48,6 +49,7 @@ calendar_file = st.file_uploader('Upload an .ics File from Outlook', accept_mult
 
 ############## Build Functions ##############
 def parse_calendar(file):
+    
     cal = Calendar.from_ical(file.read())
     return cal
 
@@ -114,7 +116,7 @@ if __name__ == "__main__":
 
 def create_calendar(year, month):
     # Create a calendar for the specified month
-    cal = Calendar.monthcalendar(year, month)
+    cal = calendar.monthcalendar(year, month)
     
     # Create a Streamlit container for the calendar
     cal_container = st.container()
