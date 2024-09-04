@@ -92,7 +92,7 @@ def format_time_range(start, end):
     return f"{start.strftime('%Y-%m-%d %H:%M')} to {end.strftime('%Y-%m-%d %H:%M')}"
 
 def main():
-    calendar = parse_calendar('reachcalendar.ics')
+    calendar = parse_calendar(calendar_file)
     events = get_events(calendar)
 
     # Analyze schedule for the next 7 days
