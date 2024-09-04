@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from icalendar import calendar #, Event, vCalAddress, vText
+from icalendar import Calendar #, Event, vCalAddress, vText
 from datetime import datetime, timedelta
 import pytz
 
@@ -114,7 +114,7 @@ if __name__ == "__main__":
 
 def create_calendar(year, month):
     # Create a calendar for the specified month
-    cal = calendar.monthcalendar(year, month)
+    cal = Calendar.monthcalendar(year, month)
     
     # Create a Streamlit container for the calendar
     cal_container = st.container()
