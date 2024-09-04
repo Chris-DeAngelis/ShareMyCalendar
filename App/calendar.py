@@ -1,49 +1,49 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-#from icalendar import Calendar #, Event, vCalAddress, vText
+from icalendar import Calendar #, Event, vCalAddress, vText
 from datetime import datetime, timedelta
 
 ############## Page Setup ##############
-# st.set_page_config(
-#     page_title='Share My Calendar',
-#     page_icon=':bar_chart:', #"👋",
-#     #initial_sidebar_state="expanded",
-#     layout='wide',
-#     menu_items={
-#         #'Get Help': 'http://spauldingridge.com',
-#         #'Report a bug': "https://www.extremelycoolapp.com/bug",
-#         'About': '# Built by Chris DeAngelis, CFA | cdeangelis@spauldingridge.com'
-#     }
-# )
+st.set_page_config(
+    page_title='Share My Calendar',
+    page_icon=':bar_chart:', #"👋",
+    #initial_sidebar_state="expanded",
+    layout='wide',
+    menu_items={
+        #'Get Help': 'http://spauldingridge.com',
+        #'Report a bug': "https://www.extremelycoolapp.com/bug",
+        'About': '# Built by Chris DeAngelis, CFA | cdeangelis@spauldingridge.com'
+    }
+)
 
-# ############## App Introduction ##############
-# st.header('Share Your Calendar Time Blocks to Facilitate Scheduling')
-# st.write('Load your calendar and generate a screenshot of your availability. Your calendar data is never stored or shared and is cleared upon exiting Streamlit.')
-# with st.expander("Instructions", expanded=False):
-#     st.write(
-#         """
-#         1. Open Outlook and go to settings
-#         2. Instruction #2
-#         3. ...
-#         4. ...
-#         """)
-# st.divider()
-# Create a double-ended datetime slider
-# start_date = datetime.now()
-# end_date = start_date + timedelta(days=365)
-# st.write('Filter Calendar Dates')
-# selected_date_range = st.slider(
-#     'Select a Date Range',
-#     min_value=start_date,
-#     max_value=end_date,
-#     value=(start_date, start_date + timedelta(days=28)),
-#     step=timedelta(days=1),
-# )
+############## App Introduction ##############
+st.header('Share Your Calendar Time Blocks to Facilitate Scheduling')
+st.write('Load your calendar and generate a screenshot of your availability. Your calendar data is never stored or shared and is cleared upon exiting Streamlit.')
+with st.expander("Instructions", expanded=False):
+    st.write(
+        """
+        1. Open Outlook and go to settings
+        2. Instruction #2
+        3. ...
+        4. ...
+        """)
+st.divider()
+Create a double-ended datetime slider
+start_date = datetime.now()
+end_date = start_date + timedelta(days=365)
+st.write('Filter Calendar Dates')
+selected_date_range = st.slider(
+    'Select a Date Range',
+    min_value=start_date,
+    max_value=end_date,
+    value=(start_date, start_date + timedelta(days=28)),
+    step=timedelta(days=1),
+)
 
-# ############## Upload a Calendar File ##############
-# calendar_file = None
-# calendar_file = st.file_uploader('Upload an .ics File from Outlook', accept_multiple_files=False)
+############## Upload a Calendar File ##############
+calendar_file = None
+calendar_file = st.file_uploader('Upload an .ics File from Outlook', accept_multiple_files=False)
 
 # ############## Build Functions ##############
 # def parse_calendar(file_path):
