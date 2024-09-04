@@ -5,30 +5,30 @@ import numpy as np
 from datetime import datetime, timedelta
 
 ############## Page Setup ##############
-st.set_page_config(
-    page_title='Share My Calendar',
-    page_icon=':bar_chart:', #"👋",
-    #initial_sidebar_state="expanded",
-    layout='wide',
-    menu_items={
-        #'Get Help': 'http://spauldingridge.com',
-        #'Report a bug': "https://www.extremelycoolapp.com/bug",
-        'About': '# Built by Chris DeAngelis, CFA | cdeangelis@spauldingridge.com'
-    }
-)
+# st.set_page_config(
+#     page_title='Share My Calendar',
+#     page_icon=':bar_chart:', #"👋",
+#     #initial_sidebar_state="expanded",
+#     layout='wide',
+#     menu_items={
+#         #'Get Help': 'http://spauldingridge.com',
+#         #'Report a bug': "https://www.extremelycoolapp.com/bug",
+#         'About': '# Built by Chris DeAngelis, CFA | cdeangelis@spauldingridge.com'
+#     }
+# )
 
-############## App Introduction ##############
-st.header('Share Your Calendar Time Blocks to Facilitate Scheduling')
-st.write('Load your calendar and generate a screenshot of your availability. Your calendar data is never stored or shared and is cleared upon exiting Streamlit.')
-with st.expander("Instructions", expanded=False):
-    st.write(
-        """
-        1. Open Outlook and go to settings
-        2. Instruction #2
-        3. ...
-        4. ...
-        """)
-st.divider()
+# ############## App Introduction ##############
+# st.header('Share Your Calendar Time Blocks to Facilitate Scheduling')
+# st.write('Load your calendar and generate a screenshot of your availability. Your calendar data is never stored or shared and is cleared upon exiting Streamlit.')
+# with st.expander("Instructions", expanded=False):
+#     st.write(
+#         """
+#         1. Open Outlook and go to settings
+#         2. Instruction #2
+#         3. ...
+#         4. ...
+#         """)
+# st.divider()
 # Create a double-ended datetime slider
 # start_date = datetime.now()
 # end_date = start_date + timedelta(days=365)
