@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from icalendar import Calendar #, Event, vCalAddress, vText
+from icalendar import Calendar #, Event, vCalAddress, vText #Inspiration: https://learnpython.com/blog/working-with-icalendar-with-python/
 #import calendar
 from datetime import datetime, timedelta
 import pytz
